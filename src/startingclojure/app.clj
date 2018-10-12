@@ -26,3 +26,5 @@
 (defroutes app
   (GET "/" request (homepage request))
   (GET "/:id" [id] (redirect id)))
+
+(def server (jetty/run-jetty #'app {:port 8000 :join? false}))
